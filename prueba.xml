@@ -462,7 +462,9 @@ function DibujaAhorcado(contador){
 	switch(contador){
 		case 1: 
 			//dibuja la cabeza
-			$("#cabeza").show();
+			if($("#cabeza").is(":visible") ==  false){
+				$("#cabeza").show();	
+			}
 			 gapi.hangout.data.setValue("monito","1");
 		break;
 		case 2: 
