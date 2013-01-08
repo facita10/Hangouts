@@ -507,73 +507,73 @@ function DibujaAhorcado(contador){
 function aa(){
 	var state = gapi.hangout.data.getState();
 	$.each(state,function(indice,valor){
-	alert(indice);
-	if(indice.length==5){
-	var letra = indice.substring(4)
-	letra.addClass("Usado");
-	//ValidaLetra2(valor);
-	}
-	if(indice=="monito"){
-	alert("CM: "+valor);
-
-		switch(valor){
-		case "1": 
-			//dibuja la cabeza
-			alert("dibujo Cab?");
-			$("#cabeza").show();
-			alert("Si Cab");
+		//alert(indice);
+		if(indice.length==5){
+			var letra = indice.substring(4);
+			letra.addClass("Usado");
+			//ValidaLetra2(valor);
+		}
+		if(indice=="monito"){
+			//alert("CM: "+valor);
+	
+			switch(valor){
+			case "1": 
+				//dibuja la cabeza
+				alert("dibujo Cab?");
+				$("#cabeza").show();
+				alert("Si Cab");
+				break;
+			case "2": 
+				//dibuja el tronco
+				$("#cabeza").show();
+				$("#tronco").show();
 			break;
-		case "2": 
-			//dibuja el tronco
-			$("#cabeza").show();
-			$("#tronco").show();
-		break;
-		case "3":
-			//dibuja el brazo izquierdo
-			$("#cabeza").show();
-			$("#tronco").show();
-			$("#brazoizquierdo").show();
-		break;
-		case "4":
-			//dibuja el brazo derecho
-			$("#cabeza").show();
-			$("#tronco").show();
-			$("#brazoizquierdo").show();
-			$("#brazoderecho").show();
-		break;
-		case "5":
-					$("#cabeza").show();
-			$("#tronco").show();
-			$("#brazoizquierdo").show();
-			$("#brazoderecho").show();
-			//dibuja la pierna izquierda
-			$("#pieizquierdo").show();
-			 
-		break;
-		case "6":
-			//dibuja la pierna derecha y pierde
-			$("#cabeza").show();
-			$("#tronco").show();
-			$("#brazoizquierdo").show();
-			$("#brazoderecho").show();
-			$("#pieizquierdo").show();
-			$("#piederecho").show();
-			$("#ContenedorAbecedario").hide();
-			$("#resultado").show();
-			$("#resultado").html("Perdiste :(");
-			var str = window.respuesta.split("");
-			for(i=0; i<window.longitud; i++){
-				$("#l"+i).val(str[i]);
-			}
-		break;
-		default: $("#monito").show();	
-	}
-	}else{
-		ValidaLetra2(valor);
-	}
-});
-//CargaPreguntas();
-//ValidaGanado();
+			case "3":
+				//dibuja el brazo izquierdo
+				$("#cabeza").show();
+				$("#tronco").show();
+				$("#brazoizquierdo").show();
+			break;
+			case "4":
+				//dibuja el brazo derecho
+				$("#cabeza").show();
+				$("#tronco").show();
+				$("#brazoizquierdo").show();
+				$("#brazoderecho").show();
+			break;
+			case "5":
+						$("#cabeza").show();
+				$("#tronco").show();
+				$("#brazoizquierdo").show();
+				$("#brazoderecho").show();
+				//dibuja la pierna izquierda
+				$("#pieizquierdo").show();
+				 
+			break;
+			case "6":
+				//dibuja la pierna derecha y pierde
+				$("#cabeza").show();
+				$("#tronco").show();
+				$("#brazoizquierdo").show();
+				$("#brazoderecho").show();
+				$("#pieizquierdo").show();
+				$("#piederecho").show();
+				$("#ContenedorAbecedario").hide();
+				$("#resultado").show();
+				$("#resultado").html("Perdiste :(");
+				var str = window.respuesta.split("");
+				for(i=0; i<window.longitud; i++){
+					$("#l"+i).val(str[i]);
+				}
+			break;
+			default: $("#monito").show();	
+		}
+		else{
+			ValidaLetra2(valor);
+		}
+	});
+	//CargaPreguntas();
+	//ValidaGanado();
 }
 
 gapi.hangout.data.onStateChanged.add(function(stateChangeEvent) {
