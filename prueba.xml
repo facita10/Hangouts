@@ -382,7 +382,9 @@ alert("ValidaLetra "+li);
 		var contadorM = parseInt(gapi.hangout.data.getValue('contadorMalas')) + 1;
 		sessionStorage.setItem("contador",contadorM);
 	  	gapi.hangout.data.setValue("contadorMalas", contadorM.toString());
-  		var sss += letraIngresada+"|";
+  		gapi.hangout.data.submitDelta({
+  			letraIngresada: letraIngresada, 
+ 		});
 		//GAPI
 			gapi.hangout.data.setValue(sss, letraIngresada);
 		//
@@ -393,13 +395,11 @@ alert("ValidaLetra "+li);
 }
 
 //Función para recorrer las letras erróneas
-var erroneas = new Array();
 function recorreError(){
-	erroneas = var sss.split("|");
-	var ll = erroneas.length;
-	for(i=0;i<ll;i++){
-		ValidaLetra2(erroneas[i])
-	}
+	letrasErroneas = gapi.hangout.data.setValue();
+	$.each(letrasErroneas,function(indice, valor){
+		ValidaLetra2(valor);
+	});
 }
 
 
